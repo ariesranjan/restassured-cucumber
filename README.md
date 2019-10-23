@@ -18,6 +18,7 @@ Framework is developed considering following system requirements
 - Base URL path is mentioned in configurations.properties which can be changed to use any other url.
 - Random data is generated using javafaker where we generated account creation data.
 - Response of create booking api is getting stored in response.properties file to validate the response of other APIs.
+- createBooking, getBookings and getBooking APIs are automated
 
 ##How to RUN:
 There are two ways to execute it
@@ -40,3 +41,4 @@ Second Way:
 - Implement logs support in the framework
 - Passing the response of one api to another when there is multiple API helper classes
 - Logging feature for easy debugging 
+- Implementing Update and Delete APIs.
