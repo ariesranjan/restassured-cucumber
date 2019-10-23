@@ -1,0 +1,15 @@
+{
+	"createBooking": {
+		"bookingdates": {
+			"checkin": "2019-11-21",
+			"checkout": "2019-11-22"
+		},
+		"bookingid": 178,
+		"depositpaid": true,
+		"email": "abc@a.com",
+		"firstname": "anki",
+		"lastname": "ran",
+		"phone": "01234567890",
+		"roomid": 45678
+	}
+}

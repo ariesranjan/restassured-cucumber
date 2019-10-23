@@ -1,0 +1,6 @@
+com/helloFresh/utils/URLBuilder.class
+com/helloFresh/apiHelpers/APIHelpers.class
+com/helloFresh/utils/RequestBuilder.class
+com/helloFresh/utils/JsonFileReader.class
+com/helloFresh/dataProviders/ConfigFileReader.class
+com/helloFresh/utils/RandomDataGeneration.class

@@ -1,0 +1,6 @@
+com/helloFresh/stepDefinitions/DeleteBookingSteps.class
+com/helloFresh/stepDefinitions/UpdateBookingSteps.class
+com/helloFresh/stepDefinitions/CreateBookingSteps.class
+com/helloFresh/stepDefinitions/GetBookingsSteps.class
+com/helloFresh/runner/TestRunner.class
+com/helloFresh/stepDefinitions/BaseURISteps.class
