@@ -2,11 +2,24 @@ package com.helloFresh.utils;
 
 import org.json.simple.JSONObject;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RequestBuilder.
+ */
 public class RequestBuilder {
 	
+	/** The json reader. */
 	JsonFileReader jsonReader = new JsonFileReader();
+	
+	/** The data generator. */
 	RandomDataGeneration dataGenerator = new RandomDataGeneration();
 	
+	/**
+	 * Creates the booking request using the random data generator.
+	 *
+	 * @param requestType the request type
+	 * @return the JSON object
+	 */
 	@SuppressWarnings("unchecked")
 	public JSONObject createBookingRequestBuilder(String requestType){
 		

@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.json.simple.JSONObject;
+import org.junit.Assert;
 
 import com.helloFresh.dataProviders.ConfigFileReader;
 import com.helloFresh.utils.RequestBuilder;
@@ -15,17 +16,33 @@ import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import junit.framework.Assert;
 
 public class APIHelpers {
 	
+	/** The req builder. */
 	RequestBuilder reqBuilder = new RequestBuilder();
+	
+	/** The get booking response. */
 	Response createBookingResponse, getBookingsResponse, getBookingResponse;
+	
+	/** The json path evaluator. */
 	JsonPath jsonPathEvaluator;
+	
+	/** The get booking. */
 	String createBookingRes, getBookingsRes, getBooking;
+	
+	/** The created booking ID. */
 	String createdBookingID;
+	
+	/** The config. */
 	ConfigFileReader config = new ConfigFileReader();
 	
+	/**
+	 * Creates the booking.
+	 *
+	 * @param reqType the req type
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void createBooking(String reqType) throws IOException{
 		RequestSpecification httpRequest = RestAssured.given();
 		
@@ -46,18 +63,38 @@ public class APIHelpers {
         }
 	}
 	
+	/**
+	 * Store booking ID.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void storeBookingID() throws IOException{
 		config.testDataFileWriter("createdBookingID", createdBookingID);
 	}
 	
+	/**
+	 * Store created booking response.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void storeCreatedBookingResponse() throws IOException{
 		config.testDataFileWriter("existingBookingDetails", createBookingRes);
 	}
 	
+	/**
+	 * Store second created booking response.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public void storeSecondCreatedBookingResponse() throws IOException{
 		config.testDataFileWriter("newlyCreatedBooking", createBookingRes);
 	}
 	
+	/**
+	 * Gets the all bookings.
+	 *
+	 * @return the all bookings
+	 */
 	public void getAllBookings(){
 		RequestSpecification httpRequest = RestAssured.given();
 		getBookingsResponse = httpRequest.request(Method.GET);
@@ -66,6 +103,11 @@ public class APIHelpers {
 		getBookingsRes = jsonPathEvaluator.get("bookings").toString();
 	}
 	
+	/**
+	 * Gets the booking.
+	 *
+	 * @return the booking
+	 */
 	public void getBooking(){
 		RequestSpecification httpRequest = RestAssured.given();
 		getBookingResponse = httpRequest.request(Method.GET);
@@ -74,6 +116,9 @@ public class APIHelpers {
 		getBooking = jsonPathEvaluator.get().toString();
 	}
 	
+	/**
+	 * Verify get booking from expected response.
+	 */
 	public void verifyGetBookingFromExpectedResponse(){
 		try {
 			Assert.assertTrue(getBooking.contains(config.testDataFileReader("newlyCreatedBooking")));
@@ -82,6 +127,9 @@ public class APIHelpers {
 		}
 	}
 	
+	/**
+	 * Verify existing bookings in get bookings response.
+	 */
 	public void verifyExistingBookingsInGetBookingsResponse(){
 		try {
 			Assert.assertTrue(getBookingsRes.contains(config.testDataFileReader("existingBookingDetails")));
