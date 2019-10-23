@@ -32,7 +32,7 @@ Second Way:
 - **Maven should be installed in the machine and path needs to be set if not.
 - Go to command prompt.
 - Run the following command where pom.xml resides.
-- **mvn clean test  - it will run all the features available in functionalTests folder.
+- **mvn clean test  - it will run all the features available in features folder.
 
 
 ##Future Enhancement: 
